@@ -1,0 +1,5 @@
+email : admin1@admin.com
+pass: admin123
+
+email : admin2@admin.com
+pass: admin321

@@ -1,0 +1,99 @@
+<?php
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+include 'koneksi.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- SITE TITLE -->
+    <title>IPW Bappeda Sumsel</title>
+    <!--
+
+Blaster Template
+
+http://www.templatemo.com/tm-472-blaster
+
+-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- STYLESHEET CSS FILES -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="css/nivo-lightbox.css">
+    <link rel="stylesheet" href="css/nivo_themes/default/default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.css' rel='stylesheet' />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    <style>
+        .jam-digital {
+            overflow: hidden;
+            width: 305px;
+            margin: 20px auto;
+            border: 1px solid #14213d;
+        }
+
+        .kotak {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin: 10px;
+            background-color: #c93822;
+        }
+
+        .jam-digital p {
+            color: #fff;
+            font-size: 28px;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+
+    <!-- navigation section -->
+    <section class="navbar navbar-fixed-top custom-navbar" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-bappeda">
+                    <p style="font-size: 14px; font-weight: bold; font-family: 'Montserrat', sans-serif;">
+                        <img src="images/logo1.png" alt="" style="width: 35px;">
+                        &nbsp; IPW
+                        BAPPEDA SUMSEL
+                    </p>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#home" class="smoothScroll">BERANDA</a></li>
+
+                    <li><a href="#about" class="smoothScroll">TENTANG KAMI</a></li>
+
+                    <li><a href="#team" class="smoothScroll">AGENDA</a></li>
+
+                    <li><a href="galeri.php" class="smoothScroll">GALERI</a></li>
+
+                    <li><a href="arsip-ipw.php" class="smoothScroll">ARSIP</a></li>
+
+                    <li><a href="#contact" class="smoothScroll">KONTAK</a></li>
+
+                    <li><a href="login-page.php" class="smoothScroll">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
