@@ -60,6 +60,12 @@ include 'header-admin.php';
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
+                navLinks: true,
+                navLinkDayClick: function(date, jsEvent) {
+                    if (window.confirm('Yakin ingin lihat full agenda pada ' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + '? Klik OK jika yakin.')) {
+                        window.location.href = 'admin-view-full-agenda.php?date=' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+                    };
+                },
                 dayMaxEvents: 1,
                 events: [
                     <?php
@@ -73,7 +79,8 @@ include 'header-admin.php';
                             end: '<?php echo $d['selesai']; ?>', //menampilkan tgl selesai dari tabel
                             url: '<?php echo 'admin-view-detail-agenda.php?id=' . $d['id'] . ' '; ?>'
                         },
-                    <?php } ?>
+                    <?php }
+                    ?>
                 ],
                 selectOverlap: function(event) {
                     return event.rendering === 'background';
