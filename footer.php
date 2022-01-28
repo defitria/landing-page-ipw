@@ -58,6 +58,44 @@
                 </form>
             </div>
         </div>
+        <br>
+        <hr style="border: 1px solid #14213d;">
+        <h3 style="margin-top: 40px;">Tanya Jawab</h3>
+        <br>
+        <?php
+        $sql = mysqli_query($koneksi, "SELECT * FROM pengunjung JOIN jawabanadmin WHERE pengunjung.email=jawabanadmin.email_pengunjung ORDER BY pengunjung.tanggal DESC LIMIT 5");
+        while ($r = mysqli_fetch_array($sql)) {
+
+            extract($r);
+
+        ?>
+            <table class="table" style="border: 1px solid #bdbcb9;">
+                <tr>
+                    <td scope="col-md-6 col-sm-6 wow fadeInUp">
+                        Dikirimkan oleh <small class="bold"><?php echo $nama ?></small>
+                        pada tanggal: <small class="bold"><?php echo date('d F Y H:i', strtotime($tanggal)) ?></small>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="col" class="bold">
+                        <?= $pesan ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="col-md-6 col-sm-6 wow fadeInUp">
+                        Dijawab oleh <small class="bold">admin</small>
+                        pada tanggal: <small class="bold"><?php echo date('d F Y H:i', strtotime($tanggal_jawaban)) ?></small>
+                    </td>
+                </tr>
+                <tr>
+                    <td scope="col" class="bold">
+                        <?= $pesan_jawaban ?>
+                    </td>
+                </tr>
+            </table>
+        <?php } ?>
+        <br>
+        <hr style="border: 1px solid #14213d;">
     </div>
 </section>
 
