@@ -73,6 +73,8 @@ http://www.templatemo.com/tm-472-blaster
 
                     <li><a href="admin-berita-ipw.php" class="smoothScroll">BERITA</a></li>
 
+                    <li><a href="admin-pesan.php" class="smoothScroll">PESAN</a></li>
+
                     <li><a href="?keluar=yes" class="smoothScroll">LOGOUT</a></li>
                 </ul>
             </div>
