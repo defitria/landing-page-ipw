@@ -2,24 +2,24 @@
 
 session_start();
 
-include 'header-admin.php';
 include '../koneksi.php';
 
 if ($_GET['act'] && $_GET['act'] == 'hapus') {
     $id = (int)$_GET['no'];
 
-    $c = $koneksi->query("DELETE FROM pengunjung WHERE no = " . $_GET["no"]);
+    $c = $koneksi->query("DELETE FROM pengunjung WHERE no = " . $_GET["no"] . "");
+} elseif ($_GET['act'] && $_GET['act'] == 'jawab') {
+
+    header("Location: admin-answer.php?email=" . $_GET["email"] . "");
 }
 
 ?>
 
 <!-- USER SECTION -->
 <section>
-    <div class="container" style="margin-top:150px;">
+    <div class="container" style="margin-top:-50px;">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <!-- LIST USER ADMIN -->
-
                 <h4 style="margin-top: 50px;">List Pesan</h4>
                 <table class="table">
                     <tr>
@@ -56,7 +56,7 @@ if ($_GET['act'] && $_GET['act'] == 'hapus') {
                             <td class=''><?= $email ?></td>
                             <td class=''><?= $pesan ?></td>
                             <td class=''><?= date("d F Y", strtotime($tanggal)); ?></td>
-                            <td class=''><a href='?mod=pengunjung&act=hapus&no=<?= $no ?>' class='btn btn-danger'><i class="fas fa-trash-alt"></i></a></td>
+                            <td class=''><a href='?mod=pengunjung&act=jawab&email=<?= $email ?>' class='btn btn-primary'>Jawab</a> | <a href='?mod=pengunjung&act=hapus&no=<?= $no ?>' class='btn btn-danger'><i class="fas fa-trash-alt"></i></a></td>
 
                         </tr>
                     <?php
