@@ -4,13 +4,76 @@ include 'koneksi.php';
 ?>
 
 <!-- HOME SECTION -->
-<section id="home">
+<!-- <section id="home">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				<hr>
 				<h3><span class="bold">Official Website</h3>
 				<h1 class="heading">BIDANG IPW BAPPEDA SUMSEL</h1>
+			</div>
+		</div>
+	</div>
+</section> -->
+<section id="">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<!-- CAROUSEL -->
+				<div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-left: -110px;  width: 1500px; height: 680px">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+						<li data-target="#myCarousel" data-slide-to="3"></li>
+						<li data-target="#myCarousel" data-slide-to="4"></li>
+					</ol>
+					<!-- deklarasi carousel -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<img src="images/2.jpg" style="width: 1500px; height: 680px">
+							<div class="carousel-caption">
+								<hr style="border: 2px solid #14213d; width: 100px; margin-left: 350px; box-shadow: 4px 4px white;">
+								<h3 style="letter-spacing: 2px;"><span class="bold" style="margin-left: -120px; color: #14213d;  text-shadow: 4px 4px white;">Official Website</h3>
+								<h1 class="heading" style="margin-left: -120px; margin-bottom: 230px; color: #14213d;  text-shadow: 4px 4px white;">BIDANG IPW BAPPEDA SUMSEL</h1>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/3.jpg" style="width: 1500px;height: 680px">
+							<div class="carousel-caption">
+								<hr style="border: 2px solid #14213d; width: 100px; margin-left: 350px; box-shadow: 4px 4px white;">
+								<h3 style="letter-spacing: 2px;"><span class="bold" style="margin-left: -120px; color: #14213d;  text-shadow: 4px 4px white;">Official Website</h3>
+								<h1 class="heading" style="margin-left: -120px; margin-bottom: 230px; color: #14213d;  text-shadow:  4px 4px white;">BIDANG IPW BAPPEDA SUMSEL</h1>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/4.jpg" style="width: 1500px;height: 680px">
+							<div class="carousel-caption">
+								<hr style="border: 2px solid #14213d; width: 100px; margin-left: 350px; box-shadow: 4px 4px white;">
+								<h3 style="letter-spacing: 2px;"><span class="bold" style="margin-left: -120px; color: #14213d; text-shadow:  4px 4px white">Official Website</h3>
+								<h1 class="heading" style="margin-left: -120px; margin-bottom: 230px; color: #14213d; text-shadow:  4px 4px white">BIDANG IPW BAPPEDA SUMSEL</h1>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/5.jpg" style="width: 1500px;height: 680px">
+							<div class="carousel-caption">
+								<hr style="border: 2px solid #14213d; width: 100px; margin-left: 350px; box-shadow: 4px 4px white;">
+								<h3 style="letter-spacing: 2px;"><span class="bold" style="margin-left: -120px; color: #14213d; text-shadow: 4px 4px white">Official Website</h3>
+								<h1 class="heading" style="margin-left: -120px; margin-bottom: 230px; color: #14213d; text-shadow:  4px 4px white">BIDANG IPW BAPPEDA SUMSEL</h1>
+							</div>
+						</div>
+						<div class="item">
+							<img src="images/6.jpg" style="width: 1500px;height: 680px">
+							<div class="carousel-caption">
+								<hr style="border: 2px solid #14213d; width: 100px; margin-left: 350px; box-shadow: 4px 4px white;">
+								<h3 style="letter-spacing: 2px;"><span class="bold" style="margin-left: -120px; color: #14213d; text-shadow:  4px 4px white">Official Website</h3>
+								<h1 class="heading" style="margin-left: -120px; margin-bottom: 230px; color: #14213d; text-shadow:  4px 4px white">BIDANG IPW BAPPEDA SUMSEL</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END OF CAROUSEL -->
 			</div>
 		</div>
 	</div>
@@ -175,6 +238,12 @@ include 'koneksi.php';
 	document.addEventListener('DOMContentLoaded', function() {
 		var calendarEl = document.getElementById('calendar');
 		var calendar = new FullCalendar.Calendar(calendarEl, {
+			navLinks: true,
+			navLinkDayClick: function(date, jsEvent) {
+				if (window.confirm('Yakin ingin lihat full agenda pada ' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + '? Klik OK jika yakin.')) {
+					window.location.href = 'view-full-agenda.php?date=' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+				};
+			},
 			dayMaxEvents: 1,
 			events: [
 				<?php
@@ -186,10 +255,10 @@ include 'koneksi.php';
 						title: '<?php echo $d['kegiatan']; ?>', //menampilkan tgl mulai dari tabel
 						start: '<?php echo $d['mulai']; ?>', //menampilkan tgl mulai dari tabel
 						end: '<?php echo $d['selesai']; ?>', //menampilkan tgl selesai dari tabel
-						url: '<?php echo 'view-detail-agenda.php?id=' . $d['id'] . ' '; ?>'
-
+						url: '<?php echo 'admin-view-detail-agenda.php?id=' . $d['id'] . ' '; ?>'
 					},
-				<?php } ?>
+				<?php }
+				?>
 			],
 			selectOverlap: function(event) {
 				return event.rendering === 'background';
